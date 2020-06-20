@@ -1,15 +1,18 @@
-import React from 'react'
-import LobbyList from './component/LobbyList.js'
-import CustomerRegistration from './component/CustomerRegistration.js'
+import React, { useState } from 'react'
 
 import './App.css'
+import WelcomePage from './pages/WelcomePage.js'
+import ProductPage from './pages/ProductPage.js'
 
 function App() {
+  const [customerName, setCustomerName] = useState(null)
   return (
     <div>
-      <h1>I take you to the Lobby Shop</h1>
-      <CustomerRegistration />
-      <LobbyList />
+      {!customerName ? (
+        <WelcomePage onRegistration={setCustomerName} />
+      ) : (
+        <ProductPage customerName={customerName} />
+      )}
     </div>
   )
 }
