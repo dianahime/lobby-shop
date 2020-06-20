@@ -1,1 +1,78 @@
+:root {
+  --base: #f7fff7;
+  --text: #1a535c;
+  --card: #1a535c10;
+}
+body {
+  background-color: var(--base);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  padding: 0 10px;
+}
 
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  background-color: var(--card);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+button {
+  font-size: 1.1rem;
+  border: none;
+  color: var(--base);
+  background-color: var(--text);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+input {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  width: 80%;
+}
+
+.welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.headline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.lobbyist-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
