@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
-import './App.css'
 import WelcomePage from './pages/WelcomePage.js'
 import ProductPage from './pages/ProductPage.js'
+
+import './App.css'
 
 function App() {
   const [customerName, setCustomerName] = useState(null)

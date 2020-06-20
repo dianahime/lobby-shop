@@ -11,7 +11,6 @@ function WelcomePage({ onRegistration }) {
             ? 'I take you to the Lobby Shop'
             : 'Zu Gewährung des Zugangs ist die Eingabe ihrer Kontaktinfomation erforderlich.'}
         </h1>
-        {isFormVisible && <CustomerRegistration onSubmit={onRegistration} />}
         {!isFormVisible && (
           <button
             className="welcome-button"
@@ -19,6 +18,9 @@ function WelcomePage({ onRegistration }) {
           >
             Let's go!
           </button>
+        )}
+        {isFormVisible && (
+          <CustomerRegistration onRegistration={onRegistration} />
         )}
       </div>
     </div>
