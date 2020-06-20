@@ -12,7 +12,7 @@ export default function LobbyList() {
       .then((response) => response.data)
       .then((list) => setLobbyist(list))
       .catch((error) => console.log(error))
-  }, [lobbyists])
+  }, [])
 
   return (
     <ul>
