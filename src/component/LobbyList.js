@@ -15,8 +15,10 @@ export default function LobbyList() {
   }, [lobbyists])
 
   return (
-    <div>
-      <LobbyListItem lobbyists={lobbyists} />
-    </div>
+    <ul>
+      {lobbyists.map((lobbyist) => (
+        <LobbyListItem lobbyist={lobbyist} key={lobbyist.name} />
+      ))}
+    </ul>
   )
 }
