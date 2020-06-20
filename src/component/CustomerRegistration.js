@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
-export default function CustomerRegistration() {
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
+export default function CustomerRegistration({ onSubmit }) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const handleSubmit = (event) => {
     event.preventDefault()
     if (name && email) {
@@ -13,6 +13,7 @@ export default function CustomerRegistration() {
           setName('')
           setEmail('')
           alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
+          onSubmit(name)
         })
         .catch((error) => {
           alert('Sie sind hier nicht willkommen.')
@@ -35,7 +36,7 @@ export default function CustomerRegistration() {
         type="email"
         placeholder="Ihre elektronische Adresse"
       />
-      <button>Jetzt registrieren</button>
+      <button>Jetzt betreten</button>
     </form>
   )
 }
