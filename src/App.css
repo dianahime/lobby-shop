@@ -70,6 +70,9 @@ input {
   border-radius: 10px;
 }
 
+.welcome-text {
+  font-size: 1.5rem;
+}
 .headline-container {
   display: flex;
   justify-content: space-between;
