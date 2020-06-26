@@ -2,10 +2,10 @@ import React from 'react'
 import LobbyList from '../component/LobbyList.js'
 import styled from 'styled-components'
 
-function ProductPage({ customerName }) {
+function ProductPage({ customer }) {
   return (
     <ProductPageContainer className="product-page">
-      <h1 className="welcome-text">Willkommen, {customerName}</h1>
+      <h1 className="welcome-text">Willkommen, {customer.name}</h1>
       <LobbyList />
     </ProductPageContainer>
   )

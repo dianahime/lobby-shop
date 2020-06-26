@@ -15,7 +15,7 @@ export default function CustomerRegistration({ onRegistration }) {
           setName('')
           setEmail('')
           alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
-          onRegistration(name)
+          onRegistration({ name, email })
         })
         .catch((error) => {
           alert('Sie sind hier nicht willkommen.')
