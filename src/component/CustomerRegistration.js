@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import * as Yup from 'yup'
-import { Formik, Form, Field, ErrorMessage, ErrorStyles } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import styled from 'styled-components'
 
 let ProfileSchema = Yup.object().shape({
   name: Yup.string().required(),
   email: Yup.string()
-    .email('DAS IST KEINE GUELTIGE EMAIL ADRESSE!!!')
+    .email('DAS IST KEINE GUELTIGE EMAIL ADRESSE, DU HONK!!!')
     .max(50, 'Too Long!')
     .required('Required'),
 })
@@ -17,8 +18,12 @@ export default function CustomerRegistration({ onRegistration }) {
       initialValues={{ name: '', email: '' }}
       validationSchema={ProfileSchema}
       onSubmit={(values, { setSubmitting }) => {
+        console.log(values.name, values.email)
         axios
-          .post('http://localhost:2020/customers', { name, email })
+          .post('http://localhost:2020/customers', {
+            name: values.name,
+            email: values.email,
+          })
           .then(() => {
             alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
             onRegistration(setSubmitting(values))
@@ -36,34 +41,25 @@ export default function CustomerRegistration({ onRegistration }) {
       {({ isSubmitting }) => (
         <Form className="formik">
           <Field type="name" name="name" />
-          <ErrorMessage name="name" component="div" />
+          <ErrorMessageStyled name="name" component="div" />
           <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <button type="submit" disabled={isSubmitting}>
+          <ErrorMessageStyled name="email" component="div" />
+          <ButtonStyled type="submit" disabled={isSubmitting}>
             Submit
-          </button>
+          </ButtonStyled>
         </Form>
       )}
     </Formik>
   )
 }
 
-/*  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (name && email) {
-      axios
-        .post('http://localhost:2020/customers', { name, email })
-        .then(() => {
-          setName('')
-          setEmail('')
-          alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
-          onRegistration(name)
-        })
-        .catch((error) => {
-          alert('Sie sind hier nicht willkommen.')
-          console.log(error)
-        })
-    }
+const ErrorMessageStyled = styled(ErrorMessage)`
+  border: 2px dashed hotpink;
+  color: hotpink;
+  padding: 5px;
+  margin-bottom: 10px;
+`
 
-    <ErrorStyles name="email" component="div" />
-  }*/
+const ButtonStyled = styled.button`
+  color: white;
+`
