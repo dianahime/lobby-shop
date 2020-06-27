@@ -26,16 +26,16 @@ export default function CustomerRegistration({ onRegistration }) {
           })
           .then(() => {
             alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
-            onRegistration(setSubmitting(values))
+            onRegistration({
+              name: values.name,
+              email: values.email,
+            })
+            setSubmitting(false)
           })
           .catch((error) => {
             alert('Sie sind hier nicht willkommen.')
             console.log(error)
           })
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
       }}
     >
       {({ isSubmitting }) => (
