@@ -18,7 +18,6 @@ export default function CustomerRegistration({ onRegistration }) {
       initialValues={{ name: '', email: '' }}
       validationSchema={ProfileSchema}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values.name, values.email)
         axios
           .post('http://localhost:2020/customers', {
             name: values.name,
@@ -38,11 +37,17 @@ export default function CustomerRegistration({ onRegistration }) {
           })
       }}
     >
-      {({ isSubmitting }) => (
-        <FormStyled className="formik">
-          <Field type="name" name="name" placeholder="Ihr werter Name" />
+      {({ handleSubmit, isSubmitting }) => (
+        <FormStyled className="formik" onSubmit={handleSubmit}>
+          <Field
+            id="name"
+            type="name"
+            name="name"
+            placeholder="Ihr werter Name"
+          />
           <ErrorMessageStyled name="name" component="div" />
           <Field
+            id="email"
             type="email"
             name="email"
             placeholder="Ihre elektronische Adresse"
