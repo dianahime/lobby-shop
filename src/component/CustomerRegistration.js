@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 
 export default function CustomerRegistration({ onRegistration }) {
   const [name, setName] = useState('')
@@ -14,7 +15,7 @@ export default function CustomerRegistration({ onRegistration }) {
           setName('')
           setEmail('')
           alert('Danke für Ihre Daten. Wir werden sie demnächst verkaufen :P')
-          onRegistration(name)
+          onRegistration({ name, email })
         })
         .catch((error) => {
           alert('Sie sind hier nicht willkommen.')
@@ -24,7 +25,7 @@ export default function CustomerRegistration({ onRegistration }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleSubmit}>
       <input
         value={name}
         onChange={(event) => setName(event.target.value)}
@@ -38,6 +39,26 @@ export default function CustomerRegistration({ onRegistration }) {
         placeholder="Ihre elektronische Adresse"
       />
       <button>Jetzt betreten</button>
-    </form>
+    </FormStyled>
   )
 }
+
+const FormStyled = styled.form`
+  input {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    width: 80%;
+  }
+
+  button {
+    font-size: 1.1rem;
+    border: none;
+    color: var(--base);
+    background-color: var(--text);
+    padding: 10px;
+    border-radius: 3px;
+  }
+`

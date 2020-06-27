@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import '../App.css'
 import LobbyListItem from './LobbyListItem'
+import styled from 'styled-components'
 
-export default function LobbyList() {
+export default function LobbyList({ onAddToCart }) {
   const [lobbyists, setLobbyist] = useState([])
 
   useEffect(() => {
@@ -15,10 +15,21 @@ export default function LobbyList() {
   }, [])
 
   return (
-    <ul>
+    <ListStyled>
       {lobbyists.map((lobbyist) => (
-        <LobbyListItem lobbyist={lobbyist} key={lobbyist.name} />
+        <LobbyListItem
+          onAddToCart={onAddToCart}
+          lobbyist={lobbyist}
+          key={lobbyist.name}
+        />
       ))}
-    </ul>
+    </ListStyled>
   )
 }
+
+const ListStyled = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+`

@@ -3,7 +3,7 @@
   --text: #1a535c;
   --card: #1a535c10;
 }
-body {
+/* body {
   background-color: var(--base);
   color: var(--text);
   font-family: 'Lato', sans-serif;
@@ -84,3 +84,4 @@ input {
   font-weight: bold;
   font-size: 1.2rem;
 }
+ */
