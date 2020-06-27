@@ -5,13 +5,13 @@ import styled from 'styled-components'
 export default function Navbar() {
   return (
     <NavigationStyled>
-      <NavLinkStyled to="/">
+      <NavLinkStyled activeClassName="active" exact to="/">
         <i className="fas fa-piggy-bank"></i>
       </NavLinkStyled>
-      <NavLinkStyled to="/cart">
+      <NavLinkStyled activeClassName="active" to="/cart">
         <i className="fas fa-shopping-cart"></i>
       </NavLinkStyled>
-      <NavLinkStyled to="/profile">
+      <NavLinkStyled activeClassName="active" to="/profile">
         <i className="fas fa-user-alt"></i>
       </NavLinkStyled>
     </NavigationStyled>
@@ -32,15 +32,23 @@ const NavLinkStyled = styled(NavLink)`
   list-style: none;
   padding: 15px;
   margin: 10px;
-  background-color: blue;
+  background-color: var(--text);
   text-align: center;
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.31);
 
   i {
-    color: white;
+    color: var(--base);
     padding: 5px 13px;
     text-decoration: none;
     font-size: 1.6rem;
+  }
+
+  &.active {
+    background-color: var(--base);
+
+    i {
+      color: #1a535c;
+    }
   }
 `

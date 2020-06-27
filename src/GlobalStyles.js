@@ -8,9 +8,11 @@ export default createGlobalStyle`
 }
 
   body {
+  height: 100vh;
   background-color: var(--base);
   color: var(--text);
   font-family: 'Lato', sans-serif;
   padding: 0 10px;
+  margin-bottom: 100px;
 }
 `

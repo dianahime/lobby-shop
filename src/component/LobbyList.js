@@ -3,7 +3,7 @@ import axios from 'axios'
 import LobbyListItem from './LobbyListItem'
 import styled from 'styled-components'
 
-export default function LobbyList() {
+export default function LobbyList({ onAddToCart }) {
   const [lobbyists, setLobbyist] = useState([])
 
   useEffect(() => {
@@ -17,7 +17,11 @@ export default function LobbyList() {
   return (
     <ListStyled>
       {lobbyists.map((lobbyist) => (
-        <LobbyListItem lobbyist={lobbyist} key={lobbyist.name} />
+        <LobbyListItem
+          onAddToCart={onAddToCart}
+          lobbyist={lobbyist}
+          key={lobbyist.name}
+        />
       ))}
     </ListStyled>
   )

@@ -9,7 +9,7 @@ import './App.css'
 
 function App() {
   const [customer, setCustomer] = useState(null)
-
+  const [cartItems, setCartItems] = useState([])
   return (
     <div>
       {!customer ? (
@@ -19,19 +19,22 @@ function App() {
           <Navbar />
           <Switch>
             <Route path="/cart">
-              <CartPage />
+              <CartPage cartItems={cartItems} />
             </Route>
             <Route path="/profile">
               <ProfilePage customer={customer} />
             </Route>
             <Route path="/">
-              <ProductPage customer={customer} />
+              <ProductPage onAddToCart={handleAddToCart} customer={customer} />
             </Route>
           </Switch>
         </div>
       )}
     </div>
   )
+  function handleAddToCart(lobbyist) {
+    setCartItems([...cartItems, lobbyist])
+  }
 }
 
 export default App
