@@ -63,3 +63,22 @@ const ErrorMessageStyled = styled(ErrorMessage)`
 const ButtonStyled = styled.button`
   color: white;
 `
+const FormStyled = styled.form`
+  input {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    width: 80%;
+  }
+
+  button {
+    font-size: 1.1rem;
+    border: none;
+    color: var(--base);
+    background-color: var(--text);
+    padding: 10px;
+    border-radius: 3px;
+  }
+`
