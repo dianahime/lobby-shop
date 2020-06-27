@@ -39,15 +39,19 @@ export default function CustomerRegistration({ onRegistration }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form className="formik">
-          <Field type="name" name="name" />
+        <FormStyled className="formik">
+          <Field type="name" name="name" placeholder="Ihr werter Name" />
           <ErrorMessageStyled name="name" component="div" />
-          <Field type="email" name="email" />
+          <Field
+            type="email"
+            name="email"
+            placeholder="Ihre elektronische Adresse"
+          />
           <ErrorMessageStyled name="email" component="div" />
           <ButtonStyled type="submit" disabled={isSubmitting}>
             Submit
           </ButtonStyled>
-        </Form>
+        </FormStyled>
       )}
     </Formik>
   )
